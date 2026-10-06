@@ -129,7 +129,7 @@ pub fn page_items(ui: &Ui, params: &MxmFoldedSpringParams) -> Vec<mxm_ui::paging
 }
 
 /// Everything a leaf draws with, and the ring level read once before the frame
-/// (`plugins/AGENTS.md`: destructive telemetry is read once).
+/// (mxm-kit's `docs/plugin-conventions.md`, *Editor contract*: destructive telemetry is read once).
 pub struct Live<'a, 'b> {
     pub params: &'a MxmFoldedSpringParams,
     pub ring: f32,

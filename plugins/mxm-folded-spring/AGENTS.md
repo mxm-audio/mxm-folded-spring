@@ -20,7 +20,7 @@ contract — live in the parent and are not restated here.
 
 `Cargo.toml`, `README.md`, `control-map.json`, `presets/`, and `src/` — `lib.rs`, `params.rs`,
 `preset.rs`, `telemetry.rs`, and `editor.rs` with `editor/{binding, sections}.rs`; the licence is the
-workspace's (`../../LICENSE`). The brief it is built to is
+repository's root `LICENSE` (`../../LICENSE`). The brief it is built to is
 [`docs/briefs/mxm-folded-spring.md`](../../docs/briefs/mxm-folded-spring.md), which is root-owned and
 gates the editor.
 
@@ -159,7 +159,7 @@ last free slot. **That page is now full**: the next effect that wants a role nee
 
 ```bash
 cargo test -p mxm-folded-spring
-cargo test -p mxm-mono-00-dsp --test spring_tanks   # the instrument's render, pinned
+cargo test -p mxm-mono-00-dsp --test spring_tanks   # in mxm-mono-00: the instrument's render, pinned
 cargo clippy -p mxm-folded-spring --all-targets
 # The panel, light and dark, for review -> target/layout-tree/mxm-folded-spring/<MXM_PICTURES tag>/
 MXM_PICTURES=after cargo test -p mxm-folded-spring --lib tree_pictures -- --ignored

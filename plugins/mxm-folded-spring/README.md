@@ -36,7 +36,8 @@ exactly the tank.
 
 The DSP is `mxm-mono-00`'s own `effects` module, depended on in place rather than copied, so there
 is one implementation of this reverb and the instrument's render is provably unchanged: a digest
-taken on the revision before the tanks existed still passes.
+taken on the revision before the tanks existed still passes. That test is mxm-mono-00's, and since
+2026-10-06 the digest is pinned on Windows only; elsewhere that one check is skipped.
 
 ## Two layouts
 
@@ -75,7 +76,8 @@ and nothing failed. Not yet run in a commercial host.
 
 **Fidelity is UNVERIFIED.** No hardware was measured here; the tank is modelled from a capture of a
 different unit in the same family, and `crates/mxm-mono-00-dsp`'s `AGENTS.md` lists every constant
-that is chosen rather than measured. Two of the three tanks are chosen outright.
+that is chosen rather than measured (in mxm-mono-00; the list is now its
+[`NOTES.md` § What is chosen, not measured](https://github.com/mxm-audio/mxm-mono-00/blob/main/crates/mxm-mono-00-dsp/NOTES.md#what-is-chosen-not-measured)). Two of the three tanks are chosen outright.
 
 ## Building
 

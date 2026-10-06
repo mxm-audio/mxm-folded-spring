@@ -9,7 +9,7 @@
 //! second control is the one the hardware could not offer without a screwdriver: **which tank is
 //! strung** (the owner's ruling, 2026-09-04). `Medium` is the measured tank — the one the
 //! instrument has and the only one it can have — and `Short` and `Long` are chosen scalings of it,
-//! which `crates/mxm-mono-00-dsp`'s `effects` module states as such.
+//! which `crates/mxm-mono-00-dsp`'s `effects` module (in mxm-mono-00) states as such.
 //!
 //! The third is [`feedback`](MxmFoldedSpringParams::feedback), which is **not a quantity the circuit
 //! fixed but a path it did not have**: the tank's return, sent back into its own driver. It starts

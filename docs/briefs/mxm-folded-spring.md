@@ -1,6 +1,6 @@
 # mxm-folded-spring — UI design brief
 
-Required by `MXM_DESIGN_SYSTEM.md` §14. Answers the ten questions in order, then records the
+Required by mxm-kit's [`MXM_DESIGN_SYSTEM.md`](https://github.com/mxm-audio/mxm-kit/blob/main/docs/MXM_DESIGN_SYSTEM.md) §14. Answers the ten questions in order, then records the
 deliberate deviations.
 
 **Plugin:** the Roland System-100 103 mixer's spring reverb as a standalone effect, with the tank
@@ -106,12 +106,14 @@ The source layout is **one knob on a mixer channel strip**.
   plugin's is a choice; refusing to offer it would be faithfulness to a limitation rather than to a
   sound. And **Feedback**, the tank's return driving its own input, which is a signal path the box
   did not have at all and is therefore a declared departure under the owner's ruling rather than a
-  fixed quantity opened. Its precedent is in the plugin's own `AGENTS.md`: dub practice, the
+  fixed quantity opened. Its precedent is in the plugin's own `AGENTS.md` (since 2026-10-06 its
+  [`NOTES.md` § The precedent](../../plugins/mxm-folded-spring/NOTES.md#the-precedent-researched-2026-09-04-before-it-was-built)): dub practice, the
   Doepfer A-199, Music Thing's Mk2 and Gamechanger's Light Pedal all ship it, and all of them sing
   at the top of the control.
 - **The tanks are named by their length and not after boxes.** `Medium` is the measured one; `Short`
   and `Long` are chosen scalings of it, and naming them after real units would claim captures that
-  do not exist. `crates/mxm-mono-00-dsp`'s `effects` module says the same in its own words.
+  do not exist. `crates/mxm-mono-00-dsp`'s `effects` module (in mxm-mono-00) says the same in its
+  own words.
 
 ## 10. Minimum size and 200% scale
 

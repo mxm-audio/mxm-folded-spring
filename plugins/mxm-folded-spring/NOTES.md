@@ -153,7 +153,8 @@ controls/display floor and shell gutters (`the_minimum_window_holds_the_card_at_
 Indivisible overflow retains scrolling. Existing painted-control, display and panel-fit tests
 remain; native/DPI QA is separate.
 
-**The card is a `mxm_ui::tree`** (`crates/ui/AGENTS.md`, *A card body as data*; in mxm-kit).
+**The card is a `mxm_ui::tree`** (`crates/ui/AGENTS.md`, *A card body as data*; in mxm-kit, where
+it is now [`crates/ui/NOTES.md`](https://github.com/mxm-audio/mxm-kit/blob/main/crates/ui/NOTES.md#a-card-body-as-data--tree)).
 `sections::card` describes the body once — Level and Feedback at the collection's knob column
 (`control::knob_column`), the tank switch `SPACE_2` further on and beside them (label on the knobs'
 name line, cells on their circles), then, `SPACE_5` beyond the row's spacing, the tank display — and

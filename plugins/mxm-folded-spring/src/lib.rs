@@ -4,8 +4,8 @@
 //! The tank is `research:effects/system-100-103-spring-reverb.md`; the DSP is `mxm-mono-00`'s own
 //! `effects` module, depended on in place rather than copied (`plans/plan-mxm-fx-collection.md`
 //! §2), so there is one implementation and the instrument's render is provably unchanged —
-//! `crates/mxm-mono-00-dsp/tests/spring_tanks.rs` pins it by digest, taken on the revision before
-//! the tanks existed. Not affiliated with or endorsed by Roland.
+//! `crates/mxm-mono-00-dsp/tests/spring_tanks.rs` (in mxm-mono-00) pins it by digest, taken on the
+//! revision before the tanks existed. Not affiliated with or endorsed by Roland.
 //!
 //! # Two controls
 //!

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "plugin": "dk.mxm.mxm-folded-spring",
+  "name": "Long tank",
+  "category": "fx",
+  "_comment": "`v` is the value and is authoritative. `text` is this plugin's own formatting of it, kept so the file can be read, and is never loaded.",
+  "params": {
+    "feedback": {
+      "v": 0.0,
+      "text": "0 %"
+    },
+    "level": {
+      "v": 0.28,
+      "text": "28 %"
+    },
+    "tank": {
+      "v": 1.0,
+      "text": "Long"
+    }
+  },
+  "state": null
+}

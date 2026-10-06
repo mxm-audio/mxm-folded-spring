@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "plugin": "dk.mxm.mxm-folded-spring",
+  "name": "Medium tank",
+  "category": "fx",
+  "_comment": "`v` is the value and is authoritative. `text` is this plugin's own formatting of it, kept so the file can be read, and is never loaded.",
+  "params": {
+    "feedback": {
+      "v": 0.0,
+      "text": "0 %"
+    },
+    "level": {
+      "v": 0.35,
+      "text": "35 %"
+    },
+    "tank": {
+      "v": 0.5,
+      "text": "Medium"
+    }
+  },
+  "state": null
+}

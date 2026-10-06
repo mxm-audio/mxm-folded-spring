@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "plugin": "dk.mxm.mxm-folded-spring",
+  "name": "Regenerating",
+  "category": "fx",
+  "_comment": "`v` is the value and is authoritative. `text` is this plugin's own formatting of it, kept so the file can be read, and is never loaded.",
+  "params": {
+    "feedback": {
+      "v": 0.55,
+      "text": "55 %"
+    },
+    "level": {
+      "v": 0.22,
+      "text": "22 %"
+    },
+    "tank": {
+      "v": 1.0,
+      "text": "Long"
+    }
+  },
+  "state": null
+}

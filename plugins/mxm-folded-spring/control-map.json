@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "_comment": [
+    "Which of mxm-folded-spring's parameters fill the collection's control roles.",
+    "Roles come from docs/MXM_CONTROL_MAP.md, which is normative; parameters are named by",
+    "their permanent string id, never by display name.",
+    "",
+    "`fx.reverb` already existed for the built-in spring's level, and this plugin's Level is the",
+    "same quantity, so it fills the role rather than adding one.",
+    "",
+    "`fx.reverb_tank` is new, appended into the Effects page's LAST free slot in the same change",
+    "as this plugin - the rule under which a plugin may claim a role (section 9). It is stepped,",
+    "three positions, and it is a performance control: changing tank is the one thing this effect",
+    "does besides get louder. The page is now full; the next effect that wants a role needs a page.",
+    "",
+    "`feedback` is deliberately unmapped. The page is full, and it is also the one control here",
+    "that wants a hand on it rather than a knob somebody may have assigned elsewhere."
+  ],
+  "instruments": [
+    {
+      "clap_id": "dk.mxm.mxm-folded-spring",
+      "name": "mxm-folded-spring",
+      "params": {
+        "fx.reverb": "level",
+        "fx.reverb_tank": "tank"
+      }
+    }
+  ]
+}

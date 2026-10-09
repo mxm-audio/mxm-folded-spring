@@ -1491,7 +1491,7 @@ dependencies = [
 [[package]]
 name = "mxm-control-map"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "serde",
  "serde_json",
@@ -1515,17 +1515,17 @@ dependencies = [
 [[package]]
 name = "mxm-keys"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 
 [[package]]
 name = "mxm-modulation"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 
 [[package]]
 name = "mxm-modulation-params"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "egui",
  "mxm-modulation",
@@ -1537,7 +1537,7 @@ dependencies = [
 [[package]]
 name = "mxm-mono-00-dsp"
 version = "0.1.0"
-source = "git+https://github.com/mxm-audio/mxm-mono-00?branch=main#8a23e8a88d6d4dd7d8c7bf6af642dee3678895ba"
+source = "git+https://github.com/mxm-audio/mxm-mono-00?branch=main#2762d21e58bbb8a7cde02df9932fe2dd000d9dbf"
 dependencies = [
  "mxm-modulation",
 ]
@@ -1545,7 +1545,7 @@ dependencies = [
 [[package]]
 name = "mxm-plugin-test"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "egui",
  "egui_kittest",
@@ -1559,7 +1559,7 @@ dependencies = [
 [[package]]
 name = "mxm-preset"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "dirs",
  "egui",
@@ -1573,12 +1573,12 @@ dependencies = [
 [[package]]
 name = "mxm-tempo"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 
 [[package]]
 name = "mxm-ui"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "dirs",
  "egui",
@@ -1590,7 +1590,7 @@ dependencies = [
 [[package]]
 name = "mxm-xtask"
 version = "0.4.1"
-source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#06d923d81480a7c66006b8ca226e99bf9b281d0e"
+source = "git+https://github.com/mxm-audio/mxm-kit?branch=main#c9b313fb7c4567af934c40be58d5fa956a51d25a"
 dependencies = [
  "anyhow",
  "mxm-control-map",

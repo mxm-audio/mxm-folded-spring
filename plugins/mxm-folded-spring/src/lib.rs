@@ -408,7 +408,7 @@ impl MxmFoldedSpring {
             self.tail_remaining = self.tail_remaining.saturating_sub(n as u32);
         }
 
-        self.telemetry.publish_peak(peak);
+        self.telemetry.meter.publish(peak);
         self.telemetry.publish_ring(ring);
 
         // Off has fully taken: the level is zero, so the tank emptied itself on the first sample

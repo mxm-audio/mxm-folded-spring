@@ -27,9 +27,10 @@
 //! around it — `lib.rs`, *Changing tank*.
 
 use mxm_mono_00_dsp::effects::SpringTankModel;
+use mxm_params::text;
 use mxm_preset::PresetIdentity;
 use nice_plug::prelude::*;
-use std::sync::{Arc, RwLock};
+use std::sync::RwLock;
 
 /// The wet level an inserted spring starts at.
 ///
@@ -134,26 +135,6 @@ impl Tank {
     }
 }
 
-/// Formats a parameter value for display.
-type ValueToString = Arc<dyn Fn(f32) -> String + Send + Sync>;
-/// Parses a typed-in value, returning `None` if it cannot be understood.
-type StringToValue = Arc<dyn Fn(&str) -> Option<f32> + Send + Sync>;
-
-fn v2s_percent() -> ValueToString {
-    Arc::new(|v| format!("{:.0} %", v * 100.0))
-}
-
-fn s2v_percent() -> StringToValue {
-    Arc::new(|text| {
-        text.trim()
-            .trim_end_matches('%')
-            .trim()
-            .parse::<f32>()
-            .ok()
-            .map(|v| v / 100.0)
-    })
-}
-
 #[derive(Params)]
 pub struct MxmFoldedSpringParams {
     /// The wet level. **Zero is Off.**
@@ -187,8 +168,8 @@ impl Default for MxmFoldedSpringParams {
                 FloatRange::Linear { min: 0.0, max: 1.0 },
             )
             .with_smoother(SmoothingStyle::Linear(10.0))
-            .with_value_to_string(v2s_percent())
-            .with_string_to_value(s2v_percent()),
+            .with_value_to_string(text::percent())
+            .with_string_to_value(text::parse_percent()),
             tank: EnumParam::new("Tank", Tank::Medium),
             // **Zero**, unlike Level: this is a path the hardware did not have, and the
             // instruments' *every amount starts at zero* rule is the right one for a control that
@@ -196,8 +177,8 @@ impl Default for MxmFoldedSpringParams {
             // patch, and every factory preset that leaves it alone, exactly the tank.
             feedback: FloatParam::new("Feedback", 0.0, FloatRange::Linear { min: 0.0, max: 1.0 })
                 .with_smoother(SmoothingStyle::Linear(20.0))
-                .with_value_to_string(v2s_percent())
-                .with_string_to_value(s2v_percent()),
+                .with_value_to_string(text::percent())
+                .with_string_to_value(text::parse_percent()),
 
             preset: RwLock::new(PresetIdentity::none()),
         }
@@ -210,6 +191,16 @@ mod tests {
 
     /// Each tank names a different model, and every model is named by a tank. A mirror that lost a
     /// variant would silently map two ids onto one sound.
+    /// **Every parameter's text survives the host's round trip**, with the unit on, across the
+    /// collection's grids and switch points (`mxm_plugin_test::text_checks`).
+    #[test]
+    fn every_parameter_text_survives_the_hosts_round_trip() {
+        mxm_plugin_test::text_checks::every_text_round_trips(
+            &MxmFoldedSpringParams::default(),
+            &[],
+        );
+    }
+
     #[test]
     fn every_tank_maps_to_its_own_model() {
         let mapped: Vec<SpringTankModel> = Tank::ALL.iter().map(|t| t.model()).collect();

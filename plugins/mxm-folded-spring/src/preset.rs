@@ -27,7 +27,7 @@ impl mxm_preset::Instrument for MxmFoldedSpringParams {
     }
 
     /// In declaration order, from the one list the editor draws from.
-    fn parameters(&self) -> Vec<(&'static str, &dyn mxm_preset::ErasedParam)> {
+    fn parameters(&self) -> Vec<(&'static str, &dyn mxm_params::ErasedParam)> {
         crate::editor::sections::all_parameters(self)
             .into_iter()
             .map(|bound| (bound.id, bound.param))
@@ -66,6 +66,19 @@ mod tests {
     /// ```text
     /// cargo test -p mxm-folded-spring --lib the_mapping_table -- --ignored --nocapture
     /// ```
+    /// **Every stored `text` is this plugin's own formatting of the `v` beside it**
+    /// (`mxm_preset::stale_factory_texts`).
+    #[test]
+    fn every_factory_text_is_this_plugins_formatting_of_its_value() {
+        let stale = mxm_preset::stale_factory_texts(&MxmFoldedSpringParams::default());
+        assert!(
+            stale.is_empty(),
+            "{} stale texts — regenerate the files:\n{}",
+            stale.len(),
+            stale.join("\n")
+        );
+    }
+
     #[test]
     #[ignore = "prints what each normalised value means, for preset design"]
     fn the_mapping_table() {

@@ -24,6 +24,7 @@ mxm-ui.workspace = true
 # Presets: the format, the library on disk, favourites, the loaded identity and the app-bar
 # controls, one crate for every instrument and effect.
 mxm-preset.workspace = true
+mxm-params.workspace = true
 egui.workspace = true
 # The tank itself. A compile-time dependency on the instrument's DSP crate, not a copy of it: one
 # implementation, and the instrument's render provably unchanged (see that crate's

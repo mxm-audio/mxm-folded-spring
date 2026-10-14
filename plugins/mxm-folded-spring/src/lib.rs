@@ -100,8 +100,8 @@ mod params;
 pub mod preset;
 mod telemetry;
 
+use mxm_dsp::guard::flush;
 use mxm_mono_00_dsp::effects::{SpringReverb, SpringWet};
-use mxm_mono_00_dsp::flush;
 use nice_plug::prelude::*;
 use params::MxmFoldedSpringParams;
 use std::sync::Arc;

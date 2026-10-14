@@ -183,7 +183,7 @@ dependencies = [
 [[package]]
 name = "baseview"
 version = "0.3.6"
-source = "git+https://github.com/mxm-audio/baseview?branch=main#0b04fdd2520ffcffe2f02ee47907394e23ff384d"
+source = "git+https://github.com/mxm-audio/baseview?branch=main#a0d8979d63f36945e026ae6837b1602d85e22713"
 dependencies = [
  "block2 0.6.2",
  "bytemuck",
@@ -1539,7 +1539,7 @@ dependencies = [
 [[package]]
 name = "mxm-mono-00-dsp"
 version = "0.1.0"
-source = "git+https://github.com/mxm-audio/mxm-mono-00?branch=main#03b9a0692c2d177eac88048046bb77576adfc2a6"
+source = "git+https://github.com/mxm-audio/mxm-mono-00?branch=main#8341549e98cac808c4096b295fb068d5cfe1eb5a"
 dependencies = [
  "mxm-modulation",
 ]

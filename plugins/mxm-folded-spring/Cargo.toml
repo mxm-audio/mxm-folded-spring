@@ -20,8 +20,8 @@ crate-type = ["cdylib", "lib"]
 [dependencies]
 # The denormal guard (`mxm_dsp::guard::flush`).
 mxm-dsp.workspace = true
+mxm-editor.workspace = true
 nice-plug.workspace = true
-nice-plug-egui.workspace = true
 mxm-ui.workspace = true
 # Presets: the format, the library on disk, favourites, the loaded identity and the app-bar
 # controls, one crate for every instrument and effect.

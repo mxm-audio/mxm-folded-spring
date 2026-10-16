@@ -513,7 +513,19 @@ impl ClapPlugin for MxmFoldedSpring {
     ];
 }
 
+impl Vst3Plugin for MxmFoldedSpring {
+    /// Permanent, as `CLAP_ID` is: the CLAP id's hash written out, held to it by
+    /// `identity::the_vst3_class_id_is_the_clap_ids_hash`.
+    const VST3_CLASS_ID: [u8; 16] = [
+        0x93, 0xf9, 0x83, 0x80, 0xb7, 0x8e, 0xeb, 0x48, 0x56, 0xa3, 0xc3, 0xf4, 0xea, 0x6f, 0xb0,
+        0xed,
+    ];
+    const VST3_SUBCATEGORIES: &'static [Vst3SubCategory] =
+        &[Vst3SubCategory::Fx, Vst3SubCategory::Reverb];
+}
+
 nice_export_clap!(MxmFoldedSpring);
+nice_export_vst3!(MxmFoldedSpring);
 
 #[cfg(test)]
 mod tests {
@@ -1209,6 +1221,17 @@ mod tests {
 #[cfg(test)]
 mod identity {
     use super::{CLAP_ID, NAME};
+    use mxm_plugin_test::formats;
+
+    #[test]
+    fn the_vst3_class_id_is_the_clap_ids_hash() {
+        formats::the_vst3_class_id_is_the_clap_ids_hash::<super::MxmFoldedSpring>();
+    }
+
+    #[test]
+    fn the_vst3_categories_follow_the_clap_features() {
+        formats::the_vst3_categories_follow_the_clap_features::<super::MxmFoldedSpring>();
+    }
 
     #[test]
     fn the_id_is_the_name_under_the_project_domain() {

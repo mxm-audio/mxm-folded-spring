@@ -19,9 +19,11 @@ contract — live in the parent and are not restated here.
 # Ownership
 
 `Cargo.toml`, `README.md`, `control-map.json`, `presets/`, and `src/` — `lib.rs`, `params.rs`,
-`preset.rs`, `telemetry.rs`, and `editor.rs` with `editor/{binding, sections}.rs`; the licence is the
-repository's root `LICENSE` (`../../LICENSE`). The brief it is built to is
-[`docs/briefs/mxm-folded-spring.md`](../../docs/briefs/mxm-folded-spring.md), which is root-owned and
+`preset.rs`, `telemetry.rs`, and `editor.rs` with `editor/{binding, sections}.rs` — and
+`host-tests/`, the release bundle through MXM Player: discovery and the map's roles, every
+parameter read, a changed tank saved and reopened by its id, the default spring to exact silence,
+and bypass. The licence is the repository's root `LICENSE` (`../../LICENSE`). The brief it is
+built to is [`docs/briefs/mxm-folded-spring.md`](../../docs/briefs/mxm-folded-spring.md), which is root-owned and
 gates the editor.
 
 # Local Contracts
@@ -166,10 +168,12 @@ MXM_PICTURES=after cargo test -p mxm-folded-spring --lib tree_pictures -- --igno
 cargo fmt -p mxm-folded-spring --check
 cargo xtask bundle mxm-folded-spring --release
 clap-validator validate "target/bundled/mxm-folded-spring.clap"
+cargo xtask fetch                                   # mxm-mono-01, the source the chain plays
+cargo test -p mxm-folded-spring-host-tests --test effect_chain
 ```
 
 `mxm-mono-00-dsp` and its `spring_tanks` test live in the mxm-mono-00 repository; this one takes the
-crate by git tag.
+crate from its `main`, locked to a commit.
 
 Commercial-host operation and hardware comparison remain manual gates.
 

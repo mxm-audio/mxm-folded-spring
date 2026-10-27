@@ -38,18 +38,32 @@ impl mxm_preset::Instrument for MxmFoldedSpringParams {
         &self.preset
     }
 
-    fn factory_files(&self) -> &'static [(&'static str, &'static str)] {
+    /// The installed set, but in a unit test, which is loaded from no bundle: the repository's.
+    #[cfg(test)]
+    fn factory_files(&self) -> Vec<(String, String)> {
         FACTORY_FILES
+            .iter()
+            .map(|(name, json)| ((*name).to_owned(), (*json).to_owned()))
+            .collect()
     }
 }
 
-/// The factory set, compiled in: **one per tank**, and Init is not one of them.
-pub const FACTORY_FILES: &[(&str, &str)] = &[
-    ("Short tank", include_str!("../presets/short-tank.json")),
-    ("Medium tank", include_str!("../presets/medium-tank.json")),
-    ("Long tank", include_str!("../presets/long-tank.json")),
-    ("Regenerating", include_str!("../presets/regenerating.json")),
-];
+/// The factory set as it ships, `(name, json)` in its order: the repository's `presets/`, which
+/// is installed beside the plugin and read there (`mxm_preset::installed_factory_dir`). For the
+/// tests, the integration tests and the audits, which are loaded from no bundle; the plugin itself
+/// never reads it.
+pub static FACTORY_FILES: std::sync::LazyLock<Vec<(&'static str, &'static str)>> =
+    std::sync::LazyLock::new(|| {
+        let folder = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("presets");
+        mxm_preset::read_factory_dir(&folder)
+            .into_iter()
+            .map(|(file, json)| {
+                let name = mxm_preset::Preset::parse(&json, crate::CLAP_ID)
+                    .map_or(file, |preset| preset.name);
+                (&*String::leak(name), &*String::leak(json))
+            })
+            .collect()
+    });
 
 #[cfg(test)]
 mod tests {
@@ -234,7 +248,7 @@ mod tests {
     /// which is what lets each of them still be called the circuit.
     #[test]
     fn only_the_regenerating_preset_feeds_the_tank_its_own_return() {
-        for (name, text) in FACTORY_FILES {
+        for (name, text) in FACTORY_FILES.iter() {
             let preset = Preset::parse(text, crate::CLAP_ID).expect("parses");
             let feedback = preset.params["feedback"].v;
             if *name == "Regenerating" {
@@ -267,7 +281,7 @@ mod tests {
 
     #[test]
     fn every_factory_preset_has_a_category() {
-        for (name, text) in FACTORY_FILES {
+        for (name, text) in FACTORY_FILES.iter() {
             let preset = Preset::parse(text, crate::CLAP_ID).expect("parses");
             assert_ne!(
                 preset.category,
@@ -279,7 +293,7 @@ mod tests {
 
     #[test]
     fn every_factory_preset_parses_and_is_for_this_instrument() {
-        for (name, text) in FACTORY_FILES {
+        for (name, text) in FACTORY_FILES.iter() {
             let preset = Preset::parse(text, crate::CLAP_ID)
                 .unwrap_or_else(|e| panic!("factory preset {name:?} does not parse: {e}"));
             assert_eq!(preset.name, *name, "the file's name must match its listing");
@@ -289,7 +303,7 @@ mod tests {
     #[test]
     fn every_factory_preset_covers_every_parameter() {
         let params = params();
-        for (name, text) in FACTORY_FILES {
+        for (name, text) in FACTORY_FILES.iter() {
             let preset = Preset::parse(text, crate::CLAP_ID).expect("parses");
             let (_, problems) = preset.resolve(&params);
             assert!(

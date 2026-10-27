@@ -1,0 +1,4 @@
+short-tank.json
+medium-tank.json
+long-tank.json
+regenerating.json
